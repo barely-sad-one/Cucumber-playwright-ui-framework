@@ -2,6 +2,7 @@ const { World, setWorldConstructor } = require('@cucumber/cucumber');
 const { Browser } = require('./browser');
 const { PageFixture } = require('../fixtures/pageFixture');
 const { Utils } = require('../utils/utils');
+const { SoftExpect } = require('../utils/softExpect');
 
 
 class TestWorld extends World {
@@ -15,6 +16,7 @@ class TestWorld extends World {
     this.page = null;
     this.pageFixture = null;
     this.utils = null;
+    this.softErrors = [];
     this.#tabs = [];
   }
 
@@ -79,6 +81,14 @@ class TestWorld extends World {
 
   async switchToLastTab() {
     this.#applyTab(this.#tabs[this.#tabs.length - 1]);
+  }
+
+  /**
+   * @param {*} value - The value to assert against.
+   * @returns {SoftExpect}
+   */
+  softExpect(value) {
+    return new SoftExpect(this, value);
   }
 
   /**
