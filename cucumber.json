@@ -1,0 +1,17 @@
+{
+  "default": {
+    "require": [
+      "src/core/world.js",
+      "src/core/hooks.js",
+      "src/modules/*/stepDefinitions/*.js"
+    ],
+    "format": [ 
+      "progress", 
+      "json:reports/cucumber-report.json",
+      "html:reports/cucumber-report.html"
+    ],
+    "paths": [
+      "src/modules/*/features/*.feature"
+    ]
+  }
+}

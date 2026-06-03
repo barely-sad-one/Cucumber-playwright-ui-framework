@@ -1,0 +1,20 @@
+{
+  "name": "UI Automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cucumber-js",
+    "test:head": "cross-env HEADLESS=false npx cucumber-js",
+    "test:tags": "cross-env HEADLESS=false npx cucumber-js --tags @Redirect"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
+    "@playwright/test": "^1.60.0",
+    "cross-env": "^10.1.0",
+    "playwright": "^1.60.0"
+  }
+}
